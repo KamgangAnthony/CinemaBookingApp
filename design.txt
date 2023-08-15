@@ -1,0 +1,37 @@
+Name : A cinema booking app
+
+objects
+- user (attributes : full_name, seat_number, card_type,
+card_number, card_cvc, cardholder_name |
+        methods : is_seat_taken(), are_banking_details_correct(), get_price_of_seat(),
+_deduct_price_from_balance(), update_balance_from_price_of_seat(), update_taken_value())
+
+- PdfReport(attributes : |
+            methods : generate(User user)
+
+Description : An app that takes in the full name of the user,
+his preferred seat number, his card type, card number, card
+cvc and cardholder name.
+
+The program is connected to 2 database files: banking.db
+with columns type, number, cvc, holder, balance |
+cinema.db with columns seat_id, taken, price.
+
+When the user has submitted all of his info, if the purchase
+is successful, a sample pdf file is generated with the name,
+a random ticket ID of 8 letters, a price and the seat number.
+The program checks the price for that seat in the cinema.db
+file and deducts it from the balance of the card in the
+banking.db file. Then it updates the 'taken' value for that
+seat to 1 in the cinema.db file. A pdf file called "sample.pdf"
+is generated with title "Your Digital Ticket", Name: "The user's
+name", the ticket ID: "a random string of 8 letters", Price:
+"the price", the seat number: "the seat number"
+
+    If the user inputs a seat that is already taken, the pro
+gram displays "seat is taken!" and no money is taken from
+the balance.
+
+    If the user inputs a card number, card type, card cvc or
+cardholder name that is not in the banking.db file, the pro
+gram outputs : "There was a problem with your card!"
